@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :find_restaurant, only: [:show, :destroy]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all
@@ -20,6 +20,14 @@ class RestaurantsController < ApplicationController
       redirect_to restaurants_path, notice: 'Your restaurant was successfully created.'
     else
       render :new
+    end
+  end
+
+  def update
+    if @restaurant.update(restaurant_params)
+      redirect_to @restaurant, notice: 'Restaurant was successfully updated.'
+    else
+      render :edit
     end
   end
 

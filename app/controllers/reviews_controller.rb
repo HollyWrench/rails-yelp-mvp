@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :find_restaurant
+  # except: :destroy ???????
 
   def new
     @review = Review.new

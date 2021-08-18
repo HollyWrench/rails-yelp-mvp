@@ -1,9 +1,16 @@
+<%# they have a <p> with id="notice"??? %>
+<%# theirs is a table, otherwise same %>
 <h1>Restaurants</h1>
 <% @restaurants.each do |restaurant| %>
-  <h5><%= restaurant.id %>. <%= restaurant.name %> - <%= '⭐️' * rand(1..5) %> - <%= restaurant.category %></h5>
+<%# change to each_with_index for style? 1. etc... %>
+  <h5><%= restaurant.name %> - <%= '⭐️' * rand(1..5) %> - <%= restaurant.category %></h5>
 <% end %>
 <p>Here are your <%= @restaurants.count %> restaurants!</p>
 
-<%= link_to 'Add new restaurant', new_restaurant_path(@restaurant) %>
+<%= link_to 'Add new restaurant', new_restaurant_path %>
 
 <%# add links to edit and delete and related code %>
+<%# THEIRS: %>
+<%# <%= link_to 'Show', restaurant %> %>
+<%# <%= link_to 'Edit', edit_restaurant_path(restaurant) %> %>
+<%# <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %> %>
