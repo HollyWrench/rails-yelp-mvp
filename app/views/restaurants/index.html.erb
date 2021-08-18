@@ -1,2 +1,9 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<h1>Restaurants</h1>
+<% @restaurants.each do |restaurant| %>
+  <h5><%= restaurant.id %>. <%= restaurant.name %> - <%= '⭐️' * rand(1..5) %> - <%= restaurant.category %></h5>
+<% end %>
+<p>Here are your <%= @restaurants.count %> restaurants!</p>
+
+<%= link_to 'Add new restaurant', new_restaurant_path(@restaurant) %>
+
+<%# add links to edit and delete and related code %>

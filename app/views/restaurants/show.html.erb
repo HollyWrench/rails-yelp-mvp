@@ -1,2 +1,20 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h1>Restaurant: <%= @restaurant.name %></h1>
+<h4>Rating:<%= '⭐️' * rand(1..5) %></h4>
+<h4>Cuisine: <%= @restaurant.category %></h4>
+<p>  ---> Mmm yum!</p>
+
+
+<ul class='list-group'>
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <%= review.content %>
+      <%= link_to 'Delete', restaurant_review_path(review), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a new review', new_restaurant_review_path(@restaurant) %>
+<br>
+<%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
+<br>
+<%= link_to '🔸 Go ⏪ 🔸 (🔙)', restaurants_path %>
